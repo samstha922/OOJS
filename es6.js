@@ -92,16 +92,24 @@
 window.onload = function(){
     // * converts to generator; generator needs iterator
     function* gen(){
-        yield 'pear';
-        yield 'apple'; // yield: pause ; js runs from right to left
-        yield 'banana';
-        console.log('all done');
+        var x = yield 'pear';
+        var y = yield 'apple'; // yield: pause ; js runs from right to left
+        var z = yield 'banana';
+        // var t1 =yield 'sam';
+        return  z+x+y;
     }
 
     // this is iterator for generator
     var myGen = gen();
     //this is like a play button for the code
     console.log(myGen.next());
+    console.log(myGen.next(10));
+    console.log(myGen.next(30));
+    console.log(myGen.next(50));
+    // nothing else to yield below
+    console.log(myGen.next()); 
+
+
     //console.log(myGen.next());
 }
 
