@@ -89,7 +89,7 @@ User.prototype.logout=function(){
     this.online =false;
     console.log(this.email+" has logged out");
 }
-// ...args is spread operator....place is parameter into an array
+// ...args is spread operator....place each parameter into an array
 function Admin(...args){
     // console.log(args);
 
