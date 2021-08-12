@@ -154,3 +154,13 @@ getToDos('json/data1.json').then(data=>{
 }).catch(err=>{
     console.log('promise rejected:', err);
 })
+
+
+// ----FETCH API
+fetch('todos/data1.json').then(()=>{
+    console.log('resolved',response)
+}).catch((err)=>{
+    console.log('rejected',err)
+})
+
+// ---ASYNC AWAIT
