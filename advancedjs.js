@@ -87,3 +87,4 @@ const ageMultiply = ages
     .sort((a,b)=> a - b)
     .reduce((total,age)=> total+age, 0)
 console.log(ageMultiply);
+// all good
