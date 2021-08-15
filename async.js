@@ -39,53 +39,53 @@
 // getToDos();
 
 
-// // Callback fxns
-// const getRequest = (callback) => {
-//     // xmlhttprequest built in to js
-//     const request = new XMLHttpRequest();
+// Callback fxns
+const getRequest = (callback) => {
+    // xmlhttprequest built in to js
+    const request = new XMLHttpRequest();
 
-//     request.addEventListener('readystatechange',()=>{
-//         // console.log(request);
-//         if(request.readyState === 4 && request.status == 200 ){
-//             // console.log(request.responseText)
+    request.addEventListener('readystatechange',()=>{
+        // console.log(request);
+        if(request.readyState === 4 && request.status == 200 ){
+            // console.log(request.responseText)
 
-//             // convert JSON string to JS objects
-//             const data = JSON.parse(request.responseText)
+            // convert JSON string to JS objects
+            const data = JSON.parse(request.responseText)
 
-//             callback(undefined, data)
-//         }
-//         else if(request. readyState === 4){
-//             // console.log('No data found')
-//             callback('couldn\'t fetch data', undefined)
-//         }
-//     })
-//     //setting up request parameters 
-//     request.open('GET','https://jsonplaceholder.typicode.com/posts');
+            callback(undefined, data)
+        }
+        else if(request. readyState === 4){
+            // console.log('No data found')
+            callback('couldn\'t fetch data', undefined)
+        }
+    })
+    //setting up request parameters 
+    request.open('GET','https://jsonplaceholder.typicode.com/possts');
     
-//     // // local json file
-//     // request.open('GET','data.json');  
+    // // local json file
+    // request.open('GET','data.json');  
 
-//     // send the request 
-//     request.send();
-// }
+    // send the request 
+    request.send();
+}
 
-// // check if callback blocks the code
-// console.log(1);
-// console.log(2);
+// check if callback blocks the code
+console.log(1);
+console.log(2);
 
-// // convention is we pass error first and then data later
-// getRequest((err,data)=>{
-//     console.log('callback fired');
-//     if (err){
-//         console.log(err);
-//     } else{
-//         console.log(data);
-//     }
+// convention is we pass error first and then data later
+getRequest((err,data)=>{
+    console.log('callback fired');
+    if (err){
+        console.log(err);
+    } else{
+        console.log(data);
+    }
     
-// });
+});
 
-// console.log(3);
-// console.log(4);
+console.log(3);
+console.log(4);
 
 // // // callback hell
 // const getToDos = (resource, callback)=>{
@@ -116,51 +116,51 @@
 // })
 
 
-// -----promise example
-const getToDos = (resource, callback)=>{
-    return new Promise((resolve,reject)=>{
+// // -----promise example
+// const getToDos = (resource, callback)=>{
+//     return new Promise((resolve,reject)=>{
 
-        const request = new XMLHttpRequest();
+//         const request = new XMLHttpRequest();
     
-        request.addEventListener('readystatechange',()=>{
-            if(request.readyState == 4 && request.status == 200 ){
-                const data = JSON.parse(request.responseText)
-                resolve(data);
-            }else if(request.readyState === 4){
-                reject('error getting the data');
-            }
-        })
-        request.open('GET', resource);
-        request.send();
-    })
-}
+//         request.addEventListener('readystatechange',()=>{
+//             if(request.readyState == 4 && request.status == 200 ){
+//                 const data = JSON.parse(request.responseText)
+//                 resolve(data);
+//             }else if(request.readyState === 4){
+//                 reject('error getting the data');
+//             }
+//         })
+//         request.open('GET', resource);
+//         request.send();
+//     })
+// }
+
+// // getToDos('json/data1.json').then(data=>{
+// //     console.log('promise resolved', data);
+// // }).catch(err=>{
+// //     console.log('promise rejected', err);
+// // })
+
+// // -----chaining promises
 
 // getToDos('json/data1.json').then(data=>{
 //     console.log('promise resolved', data);
+//     return getToDos('json/data2.json');
+// }).then(data=>{
+//     console.log('promise 2 resolved', data)
+//     return getToDos('json/data3.json');
+// }).then(data =>{
+//     console.log('promise 3 resolved', data);
 // }).catch(err=>{
-//     console.log('promise rejected', err);
+//     console.log('promise rejected:', err);
 // })
 
-// -----chaining promises
 
-getToDos('json/data1.json').then(data=>{
-    console.log('promise resolved', data);
-    return getToDos('json/data2.json');
-}).then(data=>{
-    console.log('promise 2 resolved', data)
-    return getToDos('json/data3.json');
-}).then(data =>{
-    console.log('promise 3 resolved', data);
-}).catch(err=>{
-    console.log('promise rejected:', err);
-})
+// // ----FETCH API
+// fetch('todos/data1.json').then(()=>{
+//     console.log('resolved',response)
+// }).catch((err)=>{
+//     console.log('rejected',err)
+// })
 
-
-// ----FETCH API
-fetch('todos/data1.json').then(()=>{
-    console.log('resolved',response)
-}).catch((err)=>{
-    console.log('rejected',err)
-})
-
-// ---ASYNC AWAIT
+// // ---ASYNC AWAIT

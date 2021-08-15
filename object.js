@@ -23,7 +23,7 @@
 //   // --------------------------------------------------------
 
 
-// constructor
+//  //constructor
 // class User{
 //     constructor(name, email){
 //         this.name = name; 
@@ -63,7 +63,7 @@
 // var users  = [userA, userB, admin];
 
 // // console.log('Total users');
-// // console.log(users);
+// console.log(users);
 
 // // filtering data to give admin roles
 // admin.deleteUser(userB);
@@ -91,7 +91,7 @@ User.prototype.logout=function(){
 }
 // ...args is spread operator....place each parameter into an array
 function Admin(...args){
-    // console.log(args);
+    console.log(args);
 
     // getting the reference of this from User class and connecting to args
     User.apply(this,args);
