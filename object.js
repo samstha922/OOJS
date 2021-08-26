@@ -74,47 +74,69 @@
 
 // //----------------------------------------------------------------------
 
-// Making class and constructors without using class keyoword.....using prototype fucntion
+// // Making class and constructors without using class keyoword.....using prototype fucntion
 
-function User(email, name){
-    this.email = email;
-    this.name = name;
-    this.online= false;
+// function User(email, name){
+//     this.email = email;
+//     this.name = name;
+//     this.online= false;
+// }
+// User.prototype.login = function(){
+//     this.online =true;
+//     console.log(this.email+" has logged in");
+// }
+// User.prototype.logout=function(){
+//     this.online =false;
+//     console.log(this.email+" has logged out");
+// }
+// // ...args is spread operator....place each parameter into an array
+// function Admin(...args){
+//     console.log(args);
+
+//     // getting the reference of this from User class and connecting to args
+//     User.apply(this,args);
+//     this.role='super_admin';
+// }
+
+// // inherit methods: like login() from user methods
+// Admin.prototype = Object.create(User.prototype)
+
+// // adding new method to Admin
+// Admin.prototype.deleteUser = function(user){
+//     users = users.filter(u=>{
+//         return u.email != user.email
+//     })
+// }
+
+// var userOne = new User('AA',"aa@gmail.com");
+// var userTwo = new User('BB',"bb@gmail.com");
+// var admin = new Admin('Sam','sam@admin.com')
+// // userOne.login();
+// var users = [userOne,userTwo,admin];
+// //console.log(admin);
+// // admin.deleteUser(userOne);
+// // console.log(users);
+
+
+// var swapping with destructure
+let a ='foo';
+let b = 'bar';
+// // normal swap
+// let temp = a;
+// a=b;
+// b=temp;
+// with destructure
+[a,b]= [b,a];
+
+// for...of loop
+
+const array1 = ['a','b','c','d','e'];
+const obj2={
+    foo1:'bar1',
+    foo2: 'bar2',
+    foo3: 'bar3'
 }
-User.prototype.login = function(){
-    this.online =true;
-    console.log(this.email+" has logged in");
+for (const v of array1){
+    console.log(v)
 }
-User.prototype.logout=function(){
-    this.online =false;
-    console.log(this.email+" has logged out");
-}
-// ...args is spread operator....place each parameter into an array
-function Admin(...args){
-    console.log(args);
-
-    // getting the reference of this from User class and connecting to args
-    User.apply(this,args);
-    this.role='super_admin';
-}
-
-// inherit methods: like login() from user methods
-Admin.prototype = Object.create(User.prototype)
-
-// adding new method to Admin
-Admin.prototype.deleteUser = function(user){
-    users = users.filter(u=>{
-        return u.email != user.email
-    })
-}
-
-var userOne = new User('AA',"aa@gmail.com");
-var userTwo = new User('BB',"bb@gmail.com");
-var admin = new Admin('Sam','sam@admin.com')
-// userOne.login();
-var users = [userOne,userTwo,admin];
-//console.log(admin);
-// admin.deleteUser(userOne);
-// console.log(users);
-
 

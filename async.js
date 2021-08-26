@@ -169,7 +169,7 @@
 
 // // ---ASYNC AWAIT
 getTodos = async()=>{
-    const response = await fetch('json/dstssa1.json')
+    const response = await fetch('json/data1.json')
     if (response.status !== 200){
         // custom error message that we made
         throw new Error('Page not found');
@@ -179,5 +179,17 @@ getTodos = async()=>{
 }
 
 getTodos()
-    .then(data => console.log('resolved',data))
+    .then(data => {
+        console.log('resolved',data);
+        // spreads the arrays 
+        console.log(...data);
+        games = [];
+        data.forEach(obj=>{
+            
+            games.push(obj.text);
+            // author = obj.author;            
+        })
+        
+        console.log(games);
+    })
     .catch(err => console.log('rejected:'+ err));
