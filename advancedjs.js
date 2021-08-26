@@ -210,13 +210,13 @@ function calculatePrice(price, tax, description){
   description = description ?? 'Default text';
   const total = price * (1+ tax);
  
-  // edit console style
+  //---d edit console style
   console.log(`%c${description} with tax : $${total}`, "color: red"); 
 }
 calculatePrice(100, null, undefined);
 calculatePrice(234, 0.07, 'Item1');
 
-// Optional chaining
+// -------------Optional chaining
 class Person{
   constructor(name, address, hobbies){
     this.name= name;
@@ -237,7 +237,7 @@ printPersonStreet(kyle);
 kyle.print?.(); //calls only if the function exist else will not call it.
 
 
-// Object shorthand
+// ------------Object shorthand
 const name2 ="sam";
 const favFood = 'burger';
 
